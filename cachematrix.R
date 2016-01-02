@@ -3,28 +3,28 @@
 
 ## this part makes a list of matrix and its inverse for retrive in later part.
 
-makeCacheMatrix = function(x = matrix()) {
-  temp = NULL
+makeCacheMatrix <- function(x <- matrix()) {
+  temp <- NULL
   
-  get_matrix = function() x
+  get_matrix <- function() x
   
-  set_inv    = function(inv){
+  set_inv    <- function(inv){
       temp <<- inv   
       ## <<- operator is very very important! take me 2hr+ to figure it out :'( 
   }
   
-  get_inv    = function() temp
+  get_inv    <- function() temp
   
-  list(get_matrix = get_matrix,
-       set_inv = set_inv,
-       get_inv = get_inv)
+  list(get_matrix <- get_matrix,
+       set_inv <- set_inv,
+       get_inv <- get_inv)
   
 }
 
 ## This part cache and return the invert matrix
 
-cacheSolve = function(x) {
-  temp = x$get_inv()
+cacheSolve <- function(x) {
+  temp <- x$get_inv()
   
 ## Check if the inverse is already calculated. 
   
@@ -34,9 +34,9 @@ cacheSolve = function(x) {
     
   }
   
-  temp_matrix = x$get_matrix()
+  temp_matrix <- x$get_matrix()
   
-  temp = solve(temp_matrix)
+  temp <- solve(temp_matrix)
   x$set_inv(temp)
   temp
 }
